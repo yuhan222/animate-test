@@ -12,11 +12,11 @@ h2,h3{color:#2b2b6f;}
 p{color:#555;}
 button{cursor:pointer;transition:0.3s;}
 .question-card {background: #f8f9ff; padding: 25px;border-radius: 20px;margin-top: 40px;box-shadow: 0 6px 15px rgba(0,0,0,0.08);display: inline-block;width: 90%;max-width: 500px;}
-.option-btn{background-color:#fff;border:2px solid #5a67d8;border-radius:12px;padding:10px 20px;margin:8px;width:250px;font-size:15px;}
+.option-btn{background-color:#fff;border:2px solid #3648eb;border-radius:12px;padding:10px 20px;margin:8px;width:250px;font-size:15px;}
 .option-btn:hover{background-color:#d8d8ff;transform: scale(1.05);box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
 .card{background-color:#fff;padding:30px;border-radius:20px;display:inline-block;margin-top:40px;box-shadow: 0 10px 20px rgba(0,0,0,0.08);}
-.restart-btn,.start-btn{margin-top:30px;background-color:#5a67d8;color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:16px;}
-.start-btn:hover,.restart-btn:hover {background-color: #4b0082;}
+.restart-btn,.start-btn{margin-top:30px;background-color:#3648eb;color:#fff;border:none;padding:10px 20px;border-radius:10px;font-size:16px;}
+.start-btn:hover,.restart-btn:hover {background-color: #1b08b1;}
 .characters{display:flex;justify-content:center;flex-wrap: wrap; /* 自動換行 */gap: 20px 40px;  /* 上下 20px，左右 40px */;margin-top:20px;}
 .other-characters-container {
   display: flex;
@@ -31,7 +31,7 @@ button{cursor:pointer;transition:0.3s;}
 .character p{color:#777;}
 .fade {transition: opacity 0.5s ease;opacity: 1;}
 .fade-out {opacity: 0;}
-.progress-bar {width: 0%;height: 16px;border-radius: 8px;background: linear-gradient(90deg, #5a67d8, #7f5af0, #5a67d8);background-size: 200% 100%;animation: shine 1.5s linear infinite;transition: width 0.5s ease-in-out;}
+.progress-bar {width: 0%;height: 16px;border-radius: 8px;background: linear-gradient(90deg, #5a67d8, #3c5ceb, #5a67d8);background-size: 200% 100%;animation: shine 1.5s linear infinite;transition: width 0.5s ease-in-out;}
 @keyframes shine {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
@@ -153,97 +153,97 @@ button{cursor:pointer;transition:0.3s;}
 // ---------- 角色資料 ----------
 const characters = [
   { name:"鳴人（火影忍者）", image:"https://i.postimg.cc/Wb5gbPGy/fa5d029a95cfae91ef11372f5b9d0b3f.jpg", 
-        traits:{personality:42,behavior:44,values:40}, 
+        traits:{personality:47.7,behavior:50,values:44.5}, 
         analysis:"你永不放棄、樂觀積極，對友情與認可有強烈渴望。",
         adjective:"熱血外向、行動派、信念強、正義感爆棚", 
         quote:"我未來的夢想是成為最偉大的火影！整個村子就不會再瞧不起我，開始把我當作重要的人。",
         details:{gender:"男性", age:"19歲", status:"存活", job:"忍者、（後成為）第七代火影"} },
   { name:"艾連（進擊的巨人）", image:"https://i.postimg.cc/zXzTrfgV/1d2c35bdeea9ebbf923ecb27889f95bb.jpg", 
-        traits:{personality:41,behavior:40,values:38}, 
+        traits:{personality:32,behavior:34.5,values:31}, 
         analysis:"你有強烈信念，勇於改變命運，有時略顯固执。",
         adjective:"衝動、執著、偏激的理想主義者", 
         quote:"我們每一個人，從出生那一刻開始，就是自由的。",
         details:{gender:"男性", age:"16歲", status:"死亡", job:"士兵、巨人繼承者"} },
   { name:"炭治郎（鬼滅之刃）", image:"https://i.postimg.cc/J4rjLhkj/8c26f52d57c6a3bd19a136e1fae298bb.jpg", 
-        traits:{personality:42,behavior:44,values:40}, 
+        traits:{personality:36.7,behavior:36.5,values:36}, 
         analysis:"你溫柔體貼、堅毅不拔，重視家庭與正義感。" ,
         adjective:"溫柔堅毅、有責任感、共情型人格", 
         quote:"無論何時，都請為自己感到自豪，並且努力活下去！",
         details:{gender:"男性", age:"16歲", status:"存活", job:"鬼殺隊劍士"}},
   { name:"虎杖悠仁（咒術迴戰）", image:"https://i.postimg.cc/3JtmJHXB/c35881ae2708c4a5aec4672c12ecc7f4.jpg", 
-        traits:{personality:31,behavior:32,values:35}, 
+        traits:{personality:31.5,behavior:29.5,values:29}, 
         analysis:"你自信、強勢但風趣，擁有壓倒性的能力與魅力。",
         adjective:"善良但內斂、願為他人犧牲、情感豐富。", 
         quote:"雖然我不知道自己死的時候會是怎樣，但我不想在活著的時候後悔",
         details:{gender:"男性", age:"15歲", status:"存活", job:"咒術師"} },
   { name:"利姆魯（關於我轉生變成史萊姆）", image:"https://i.postimg.cc/m2L7srHz/68a3911c9e7c637068c94c68c1c9cb57.jpg", 
-        traits:{personality:33,behavior:39,values:36}, 
+        traits:{personality:29,behavior:32,values:32}, 
         analysis:"你聰明、善於應變，擁有包容心與領導力。",
         adjective:"理性領導型、和平中帶權威", 
         quote:"沒有信念的力量毫無意義，沒有力量的信念毫無價值。",
         details:{gender:"無性", age:"37歲", status:"存活", job:"魔王"} },
   { name:"夜神月（死亡筆記本）", image:"https://i.postimg.cc/9Fmyhf74/0ca6a28318f3b18c06be0d5042f52b78.jpg", 
-        traits:{personality:29,behavior:33,values:33}, 
+        traits:{personality:23,behavior:27,values:25}, 
         analysis:"你聰明、有計畫性，追求正義與秩序，但方法特殊。" ,
         adjective:"冷靜智謀、控制慾強、極端理性派", 
         quote:"我要制裁法律無法制裁的壞人，創造理想的社會。",
         details:{gender:"男性", age:"23歲", status:"死亡", job:"學生、警察"}},
   { name:"黑子哲也（黑子的籃球）", image:"https://i.postimg.cc/TYdn6PD7/c283d36ec3fbae78da5611c4dde3259f.jpg", 
-        traits:{personality:28,behavior:30,values:34}, 
+        traits:{personality:26,behavior:26.5,values:28}, 
         analysis:"你低調、不搶風頭，但默默支援夥伴，具戰略眼光。",
         adjective:"低調穩定、注重團隊、柔和堅持", 
         quote:"無論遊戲結束時你獲得多少分，如果你不開心，那就不算勝利。",
         details:{gender:"男性", age:"16歲", status:"存活", job:"籃球員"} },
   { name:"小傑（獵人×獵人）", image:"https://i.postimg.cc/SNgCNp65/f47da2431e77654449fb8f4c70cdaa5f.jpg", 
-        traits:{personality:42,behavior:44,values:39}, 
+        traits:{personality:35.7,behavior:38,values:34}, 
         analysis:"你單純、勇敢、富有冒險精神，重視友情與成長。",
         adjective:"天真熱情、直覺行動派、非常在乎身邊的朋友", 
         quote:"當朋友是不需要什麼資格的。",
         details:{gender:"男性", age:"13歲", status:"存活", job:"職業獵人"} },
   { name:"齊木楠雄（齊木楠雄的災難）", image:"https://i.postimg.cc/JnGq3zR6/5a757e00-aee6-4f4a-818e-ccf462c6a28b.png", 
-        traits:{personality:23,behavior:26,values:24}, 
+        traits:{personality:17,behavior:18,values:16}, 
         analysis:"你冷靜、有智慧，喜歡平靜的生活，不擅於表達對身邊人的關心，但會在行動中默默為他人付出。" ,
         adjective:"被動理性、冷淡卻有責任心", 
         quote:"我討厭引人注目，但我更討厭虧欠一個人。",
         details:{gender:"男性", age:"16歲", status:"存活", job:"高中生"}},
   { name:"殺老師（暗殺教室）", image:"https://i.postimg.cc/fTzYNb9K/728035d32ad9054dade107d72c88f791.jpg", 
-        traits:{personality:32,behavior:33,values:32}, 
+        traits:{personality:30,behavior:32.5,values:31}, 
         analysis:"你幽默、聰明、富責任感，擅長激勵他人。" ,
         adjective:"聰明樂觀、重視成長", 
         quote:"新手跟大師的差別，在於大師失敗的次數比新手嘗試的次數還多。",
         details:{gender:"無性", age:"無年齡", status:"死亡", job:"老師"}},
   { name:"坂本太郎（坂本日常）", image:"https://i.postimg.cc/YqrQHSW2/4fe385c8afc6905ca8efc74e4ad370a3.jpg", 
-        traits:{personality:28,behavior:28,values:32}, 
+        traits:{personality:26,behavior:27.5,values:27}, 
         analysis:"你幽默、日常感十足，擁有小冒險的樂趣。",
         adjective:"穩重理智、有責任感、非常重視身邊的人", 
         quote:"我未來的夢想是成為最偉大的火影！整個村子就不會再瞧不起我，開始把我當作重要的人。",
         details:{gender:"男性", age:"27歲", status:"存活", job:"(前)殺手、店長"} },
   { name:"馬修·班地德（肌肉魔法使）", image:"https://i.postimg.cc/YqdYqwNc/fe4eaa5693f0b273a8600fe192aa9350.jpg", 
-        traits:{personality:35,behavior:34,values:32}, 
+        traits:{personality:27,behavior:32,values:24}, 
         analysis:"你強壯、熱血，熱愛挑戰與鍛鍊自己。" ,
         adjective:"樂行動導向、單純力量信仰、頭腦簡單心善良", 
         quote:"如果連和爺爺平安生活都不行的話……那我就用拳頭打爆這個世界。",
         details:{gender:"男性", age:"16歲", status:"存活", job:"神覺者"}},
   { name:"黑崎一護（死神）", image:"https://i.postimg.cc/xT6MTSvL/c332f006b7faf6d088f66e286d915356.jpg", 
-        traits:{personality:35,behavior:37,values:39}, 
+        traits:{personality:33,behavior:38.5,values:32}, 
         analysis:"你勇敢、重視夥伴與自由，善於計畫與行動。" ,
         adjective:"正義強、行動力高、情感深", 
         quote:"我並非認為自己會贏才在戰鬥，而是因為非贏不可才會戰鬥。",
         details:{gender:"男性", age:"27歲", status:"存活", job:"代理死神、翻譯家"}},
   { name:"淀治（鏈鋸人）", image:"https://i.postimg.cc/5N48VtCN/08f1aa5a7200768f60db32eb95d6bdb8.jpg", 
-        traits:{personality:22,behavior:20,values:23}, 
+        traits:{personality:20,behavior:20.5,values:19}, 
         analysis:"你聰明勇敢、重視目標，願意為理想冒險。" ,
         adjective:"本能衝動、為慾望行動、內心矛盾", 
         quote:"只要早午晚有三餐能吃，能睡覺能洗澡，就是最棒的人生了。",
         details:{gender:"男性", age:"17歲", status:"存活", job:"公安惡魔獵人、鏈鋸人"}},
   { name:"綠谷出久（我的英雄學院）", image:"https://i.postimg.cc/280h8fQG/d6e473e43ef5e90ad8d1fa2dbc60324d.jpg", 
-        traits:{personality:35,behavior:37,values:39}, 
+        traits:{personality:37.7,behavior:38.5,values:36}, 
         analysis:"你勇敢、重視夥伴。",
         adjective:"理想主義者、努力家、重信念", 
         quote:"愛多管閒事，也是英雄的本質。",
         details:{gender:"男性", age:"16歲", status:"存活", job:"職業英雄、老師"} },
   { name:"桐人（刀劍神域）", image:"https://i.postimg.cc/02k7sNwY/918fa7eca03bdcfcc76255cda0795fa7.jpg", 
-        traits:{personality:33,behavior:38,values:39}, 
+        traits:{personality:30,behavior:32.5,values:30}, 
         analysis:"你冷靜、有智慧，注重夥伴關係與正義感。",
         adjective:"獨行但重情、冷靜思考、擁有強烈責任感", 
         quote:"我寧願相信後悔，也不願懷疑後悔。",
@@ -262,16 +262,16 @@ const questions = [
   },
   { text: "動漫角色在劇情中面臨著道德的選擇，你更希望他選擇？",
     options: [
-    { text: "理性、利益最大化的解決方案", score:{personality:3, behavior:3, values:4} },
-    { text: "善良、保護情誼的解決方案", score:{personality:4, behavior:4, values:3} }
+    { text: "理性、利益最大化的解決方案", score:{personality:2, behavior:2, values:2} },
+    { text: "善良、保護情誼的解決方案", score:{personality:5, behavior:3, values:5} }
 ]
   },
   { text: "你對朋友的態度是？",
     options: [
-    { text: "即使朋友犯錯也會袒護他，願意為他付出一切", score:{personality:5, behavior:4, values:5} },
+    { text: "即使朋友犯錯也會袒護他，願意為他付出一切", score:{personality:5, behavior:4, values:5*1.3} },
     { text: "犯錯時會指責他，受到不公時會支持他", score:{personality:3, behavior:3, values:3} },
     { text: "好或壞都不關我的事", score:{personality:1, behavior:1, values:1} },
-    { text: "他犯錯時會遠離他", score:{personality:4, behavior:5, values:3} }
+    { text: "他犯錯時會遠離他", score:{personality:2, behavior:2, values:2} }
 ]
   },
   { text: "在團隊中發現有人犯錯，你會怎麼做？",
@@ -284,7 +284,7 @@ const questions = [
   },
   { text: "遇到陌生人需要幫忙，你會怎麼做？",
     options: [
-    { text: "主動提供幫助", score:{personality:4, behavior:5, values:4} },
+    { text: "主動提供幫助", score:{personality:4*1.3, behavior:5, values:4} },
     { text: "觀察情況再決定", score:{personality:3, behavior:3, values:3} },
     { text: "找藉口拒絕幫忙，避免麻煩", score:{personality:2, behavior:2, values:2} },
     { text: "叫他問其他人", score:{personality:1, behavior:1, values:1} }
@@ -292,7 +292,7 @@ const questions = [
   },
   { text: "要學習一種新技能，你會？",
     options: [
-    { text: "馬上動手去實作", score:{personality:4, behavior:5, values:4} },
+    { text: "馬上動手去實作", score:{personality:4, behavior:5*1.3, values:4} },
     { text: "先研究背景知識再實作", score:{personality:3, behavior:4, values:4} },
     { text: "請教已經會這項技能的人", score:{personality:3, behavior:3, values:5} },
     { text: "隨意嘗試，會了就會了，不會就不會", score:{personality:1, behavior:2, values:1} }
@@ -300,34 +300,34 @@ const questions = [
   },
   { text: "當要去做一項困難的任務時，你會？",
     options: [
-    { text: "立即投入，不怕困難", score:{personality:5, behavior:5, values:4} },
+    { text: "立即投入，不怕困難", score:{personality:5, behavior:5*1.3, values:4} },
     { text: "仔細策劃後行動，避免風險", score:{personality:4, behavior:4, values:4} },
-    { text: "尋找夥伴共同完成", score:{personality:3, behavior:3, values:5} },
+    { text: "尋找夥伴共同完成", score:{personality:2, behavior:2, values:2} },
     { text: "能不做就盡量不做", score:{personality:1, behavior:1, values:1} }
 ]
   },
   { text: "失敗時你的反應？",
     options: [
-    { text: "馬上重新開始", score:{personality:5, behavior:5, values:4} },
-    { text: "先分析原因，計畫下一步", score:{personality:4, behavior:5, values:4} },
-    { text: "尋求朋友安慰或建議", score:{personality:4, behavior:4, values:5} },
-    { text: "放鬆一下，等待心情恢復", score:{personality:2, behavior:2, values:2} }
+    { text: "馬上重新開始", score:{personality:5, behavior:5*1.3, values:4} },
+    { text: "先分析原因，計畫下一步", score:{personality:4, behavior:4, values:4} },
+    { text: "尋求朋友安慰或建議", score:{personality:3, behavior:3, values:3} },
+    { text: "放鬆一下，等待心情恢復", score:{personality:2, behavior:1, values:2} }
 ]
   },
   { text: "你的生活方式？",
     options: [
-    { text: "積極熱血，期待每一天", score:{personality:5, behavior:4, values:5} },
-    { text: "喜歡做計畫，安排自己的每分每秒", score:{personality:4, behavior:5, values:4} },
-    { text: "稍微做規劃，但也喜歡享受隨機感", score:{personality:4, behavior:4, values:5} },
+    { text: "積極熱血，期待每一天", score:{personality:5*1.3, behavior:4, values:5} },
+    { text: "喜歡做計畫，安排自己的每分每秒", score:{personality:1, behavior:1, values:1} },
+    { text: "稍微做規劃，但也喜歡享受隨機感", score:{personality:3, behavior:3, values:3} },
     { text: "無所謂，隨緣，生活怎麼樣都沒差", score:{personality:2, behavior:2, values:2} }
 ]
   },
   { text: "你對未來的態度？",
     options: [
-    { text: "一定能夠達成目標", score:{personality:5, behavior:5, values:4} },
+    { text: "一定能夠達成目標", score:{personality:5, behavior:5*1.3, values:4} },
     { text: "順其自然，享受成長的過程", score:{personality:4, behavior:4, values:4} },
-    { text: "我只在乎現在", score:{personality:4, behavior:3, values:5} },
-    { text: "恐懼未來的未知感", score:{personality:1, behavior:2, values:1} }
+    { text: "我只在乎現在", score:{personality:1, behavior:2, values:1} },
+    { text: "恐懼未來的未知感", score:{personality:3, behavior:3, values:3} }
 ]
   }
 ];
