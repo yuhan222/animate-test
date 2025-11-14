@@ -628,27 +628,31 @@ ${top3.slice(1).map(c => `
 async function generateResultImage() {
   const card = document.querySelector(".result-card");
 
-  // ⚠ 截圖前隱藏整個預覽遮罩（避免被一起截到）
-  const previewMask = document.getElementById("result-preview");
-  if (previewMask) previewMask.style.display = "none";
+  // 🔥 最關鍵：截圖前強制取消動畫 & 透明度
+  card.style.animation = "none";
+  card.style.opacity = "1";
+  card.style.transform = "none";
 
-  // ⚠ 隱藏背景球避免白霧
+  // 隱藏背景球（避免白霧）
   const bgBalls = document.querySelectorAll(".bg-circle");
   bgBalls.forEach(b => b.style.display = "none");
 
-  // 截 .result-card
+  // 隱藏分享遮罩（避免全屏白框被截到）
+  const previewMask = document.getElementById("result-preview");
+  if (previewMask) previewMask.style.display = "none";
+
   html2canvas(card, {
     scale: 4,
     backgroundColor: "#ffffff",
     useCORS: true
   }).then(canvasGenerated => {
 
-    // ⚠ 截圖後恢復動態背景球
+    // 截圖後還原背景球
     bgBalls.forEach(b => b.style.display = "");
 
     const dataURL = canvasGenerated.toDataURL("image/png");
 
-    // ⚠ 截圖後才顯示預覽框
+    // 建立預覽框
     let previewContainer = document.getElementById("result-preview");
     if (!previewContainer) {
         previewContainer = document.createElement("div");
@@ -691,6 +695,7 @@ async function generateResultImage() {
     };
   });
 }
+
 
 
 
