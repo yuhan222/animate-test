@@ -627,23 +627,24 @@ ${top3.slice(1).map(c => `
 // 生成結果圖片
 async function generateResultImage() {
   const card = document.querySelector(".result-card");
-  const canvas = document.getElementById("result-canvas");
 
-  // 設定畫布大小
-  const rect = card.getBoundingClientRect();
-  canvas.width = rect.width * 2;
-  canvas.height = rect.height * 2;
+  // 暫時隱藏背景球（避免白霧）
+  const bgBalls = document.querySelectorAll(".bg-circle");
+  bgBalls.forEach(b => b.style.display = "none");
 
-  if (typeof html2canvas === 'undefined') {
-    alert("請先引入 html2canvas.js 才能生成圖片");
-    return;
-  }
+  // 截圖設定
+  html2canvas(card, {
+    scale: 4,
+    backgroundColor: "#ffffff",   // 強制白底避免透明淡化
+    useCORS: true
+  }).then(canvasGenerated => {
 
-html2canvas(card, { scale: 4 }).then(canvasGenerated => {
+    // 截圖後恢復背景球
+    bgBalls.forEach(b => b.style.display = "");
+
     const dataURL = canvasGenerated.toDataURL("image/png");
-    
 
-    // 建立或更新預覽容器
+    // -----以下保持你的原本程式（預覽、下載、關閉）-----
     let previewContainer = document.getElementById("result-preview");
     if (!previewContainer) {
         previewContainer = document.createElement("div");
@@ -671,7 +672,6 @@ html2canvas(card, { scale: 4 }).then(canvasGenerated => {
         </div>
     `;
 
-    // 下載圖片
     document.getElementById("download-btn").onclick = () => {
         const a = document.createElement("a");
         a.href = dataURL;
@@ -679,14 +679,12 @@ html2canvas(card, { scale: 4 }).then(canvasGenerated => {
         a.click();
     };
 
-    // 關閉預覽
     document.getElementById("close-preview").onclick = () => {
         previewContainer.remove();
     };
-});
-
-
+  });
 }
+
 
 
 // 下載圖片函式
